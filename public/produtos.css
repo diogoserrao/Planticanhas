@@ -1,0 +1,13 @@
+.card-title {
+    color: #198754;
+    font-weight: 600;
+}
+
+.card-text {
+    color: #555;
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 250px;
+}
