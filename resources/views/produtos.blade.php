@@ -16,7 +16,7 @@
                         <div class="card-body">
                         <h5 class="card-title">Papaias</h5>
                         <p class="card-text">Cultivada de forma sustentável, ideal para temperos frescos.</p>
-                        <a href="#" class="btn btn-success">Saber Mais</a>
+                        <a href=" https://pt.wikipedia.org/wiki/Papaya" class="btn btn-success">Saber Mais</a>
                     </div>
                 </div>
             </div>
@@ -26,8 +26,8 @@
                     <img src="https://th.bing.com/th/id/OIP.bi1my5kl2XsXs7zyoNGLpQHaE8?rs=1&pid=ImgDetMain" class="card-img-top" alt="Produto 2">
                     <div class="card-body">
                         <h5 class="card-title">Tomates</h5>
-                        <p class="card-text">Perfeito para interiores e fácil de cuidar.</p>
-                        <a href="#" class="btn btn-success">Saber Mais</a>
+                        <p class="card-text">Cultivada de forma sustentável, ideal para temperos frescos.</p>
+                        <a href="https://pt.wikipedia.org/wiki/Tomate" class="btn btn-success">Saber Mais</a>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Tabuleiros Plantados</h5>
                         <p class="card-text">Feito com materiais ecológicos, prontos para serem utilizados.</p>
-                        <a href="#" class="btn btn-success">Saber Mais</a>
+                        <a href=" https://plantaromatica.pt/" class="btn btn-success">Saber Mais</a>
                     </div>
                 </div>
             </div>
