@@ -1,6 +1,8 @@
 .site-header {
     transition: all 0.3s ease-in-out;
     z-index: 1030;
+  
+  
 }
 
 
@@ -42,4 +44,20 @@
 .navbar .btn-destaque:hover {
     background-color: #146c43;
     color: #fff;
+}
+
+.carousel-item{
+    height: calc(100vh - 80px); /* Full viewport height minus header */
+    overflow: hidden;
+}
+
+@media (max-width: 767.98px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .navbar-nav {
+        text-align: center;
+        padding-top: 1rem;
+    }
 }
