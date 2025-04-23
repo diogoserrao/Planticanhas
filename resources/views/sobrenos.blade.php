@@ -6,7 +6,7 @@
     <title>Sobre Nós</title>
 </head>
 
-<body>
+
     <section id="sobrenos"  class="introduction-section">
         <div class="content1">
             <div class="formatacao">
@@ -24,7 +24,7 @@
             </div>
         </div>
     </section>
-</body>
+
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
