@@ -1,0 +1,183 @@
+/* Estilos para a seção Sustentabilidade */
+#sustentabilidade {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9f5e9 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+#sustentabilidade::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   
+    opacity: 0.5;
+    z-index: 0;
+}
+
+#sustentabilidade .container {
+    position: relative;
+    z-index: 1;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #2d572c;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+  
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.25rem;
+    color: #4a6b47;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+/* Cards de sustentabilidade */
+.sustainability-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    height: 100%;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(76, 175, 80, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    perspective: 1000px;
+}
+
+.sustainability-card:hover {
+    transform: translateY(10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    border-color: rgba(76, 175, 80, 0.3);
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(76, 175, 80, 0.1);
+    border-radius: 50%;
+    color: #2d572c;
+    font-size: 2rem;
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+}
+
+.card-icon i {
+    transition: transform 0.4s ease;
+}
+
+.sustainability-card:hover .card-icon i {
+    transform: rotateY(360deg);
+}
+
+.sustainability-card h3 {
+    font-size: 1.3rem;
+    color: #2d572c;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.sustainability-card p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* Banner de certificação */
+.certification-banner {
+    background-color: #2d572c;
+    border-radius: 12px;
+    padding: 30px;
+    color: white;
+    margin-top: 30px;
+    box-shadow: 0 10px 30px rgba(76, 175, 80, 0.2);
+}
+
+.certification-banner h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.certification-banner p {
+    opacity: 0.9;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+.certification-banner i {
+    font-size: 4rem;
+    opacity: 0.3;
+}
+
+/* Efeito de animação fade-in */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .sustainability-card {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    #sustentabilidade {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .certification-banner .row {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .certification-banner i {
+        margin-top: 20px;
+        font-size: 3rem;
+    }
+}
