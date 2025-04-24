@@ -16,7 +16,6 @@
                 <div class="container-fluid">
                     <a class="navbar-brand d-flex align-items-center" href="">
                         <img class="btn-logo me-2" src="https://www.plantazon.pt/static/frontend/bulbsdirect/bulbsdirect-theme-2/pt_PT/images/logo.svg" alt="PlantiCanhas">
-                        <span class="brand-text fw-bold">PlantiCanhas</span>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -42,16 +41,29 @@
         </div>
     </header>
 
-    <!-- Hero Section com overlay de texto -->
-    <section class="hero-section" style="background-image: url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')">
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1>Da Nossa Terra para a Sua Mesa</h1>
-                <p class="lead">Alimentos frescos, saudáveis e sustentáveis, cultivados com paixão nas nossas estufas familiares.</p>
-                <a href="#produtos" class="btn btn-light btn-lg me-3">Conheça os Produtos</a>
-                <a href="#contactos" class="btn btn-outline-light btn-lg">Contacte-nos</a>
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://th.bing.com/th/id/R.d343136b443ca9810fb04873a294fea8?rik=eX3AWThE9linYw&pid=ImgRaw&r=0" class="d-block w-100" alt="Imagem de plantas em destaque">
+            </div>
+            <div class="carousel-item">
+                <img src="https://th.bing.com/th/id/R.85298e4ffac423a5c97f4352fdd28dc5?rik=baPkqOL2p8fENw&pid=ImgRaw&r=0" class="d-block w-100" alt="Imagem de plantas em destaque">
+            </div>
+            <div class="carousel-item">
+                <img src="https://th.bing.com/th/id/R.a51ea741153816670470a2b2f28a9c44?rik=Q4225SMyhyxqPg&pid=ImgRaw&r=0" class="d-block w-100" alt="Imagem de plantas em destaque">
             </div>
         </div>
-    </section>
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
