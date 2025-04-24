@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('global.css') }}">
-    <title>PlantiCanhas - Alimentos Frescos de Estufa</title>
+
+    <title>PlantiCanhas </title>
 </head>
 
 <body>
@@ -16,7 +18,7 @@
     @include('produtos')
     @include('sustentabilidade')
     @include('contactos')
-    
+
     <!-- Footer -->
     <footer class="bg-dark text-white pt-5 pb-3">
         <div class="container">
@@ -30,7 +32,7 @@
                         <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-2 col-md-4">
                     <h5 class="text-uppercase mb-3">Navegação</h5>
                     <ul class="list-unstyled">
@@ -40,7 +42,7 @@
                         <li class="mb-2"><a href="#contactos" class="text-decoration-none text-white">Contactos</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="col-lg-3 col-md-4">
                     <h5 class="text-uppercase mb-3">Horário</h5>
                     <ul class="list-unstyled">
@@ -49,7 +51,7 @@
                         <li class="mb-2">Domingo: Fechado</li>
                     </ul>
                 </div>
-                
+
                 <div class="col-lg-3 col-md-4">
                     <h5 class="text-uppercase mb-3">Contacto</h5>
                     <ul class="list-unstyled">
@@ -59,7 +61,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="row mt-4">
                 <div class="col-12">
                     <div class="border-top border-secondary pt-3">
@@ -69,7 +71,7 @@
                             </div>
                             <div class="col-md-6 text-md-end">
                                 <p class="small text-muted mb-0">
-                                    <a href="#" class="text-muted text-decoration-none">Política de Privacidade</a> | 
+                                    <a href="#" class="text-muted text-decoration-none">Política de Privacidade</a> |
                                     <a href="#" class="text-muted text-decoration-none">Termos e Condições</a>
                                 </p>
                             </div>
@@ -79,23 +81,36 @@
             </div>
         </div>
     </footer>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Configuração do Intersection Observer para efeitos de fade-in
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('animate');
+                        // Pega o atraso personalizado se existir
+                        const delay = entry.target.dataset.delay || 0;
+
+                        // Programa a adição da classe com o atraso especificado
+                        setTimeout(() => {
+                            entry.target.classList.add('animate');
+                        }, delay);
+
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.1 });
-            
+            }, {
+                threshold: 0.1, // Reduzido para ativar mais cedo
+                rootMargin: '0px 0px -10% 0px' // Ajustado para ativar antes de entrar completamente na viewport
+            });
+
+            // Observa todos os elementos com a classe fade-in
             document.querySelectorAll('.fade-in').forEach(element => {
                 observer.observe(element);
             });
         });
     </script>
 </body>
+
 </html>

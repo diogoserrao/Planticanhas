@@ -55,7 +55,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm border-0 rounded-3 fade-in">
                     <div class="position-relative">
-                        <img src="https://media.istockphoto.com/photos/green-bell-peppers-paprika-picture-id637864692?k=6&m=637864692&s=612x612&w=0&h=WB3UHVF-h8gTUGAg1HWVzEWimGhwZUpYKxVt90ZXvyM=" class="card-img-top" alt="Pimentos">
+                        <img src="https://pepperjoe.com/cdn/shop/products/KingoftheNorth2.jpg?v=1646923240&width=493" class="card-img-top" alt="Pimentos">
                         <div class="position-absolute top-0 end-0 p-2">
                             <span class="badge bg-success">Disponível</span>
                         </div>
@@ -98,7 +98,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm border-0 rounded-3 fade-in">
                     <div class="position-relative">
-                        <img src="https://images.unsplash.com/photo-1585664811087-47f65abbad64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Ervas Aromáticas">
+                        <img src="https://th.bing.com/th/id/OIP.BFwDgWORk0LXEvmJbmmtpQHaD8?rs=1&pid=ImgDetMain" class="card-img-top" alt="Ervas Aromáticas">
                         <div class="position-absolute top-0 end-0 p-2">
                             <span class="badge bg-success">Disponível</span>
                         </div>

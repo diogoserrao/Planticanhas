@@ -1,61 +1,156 @@
-.introduction-section {
-    background-color: #f9f9f9;
-    padding: 60px 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
+/* Estilos gerais para a seção Sobre Nós */
+#sobrenos {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9f5e9 100%);
+    overflow: hidden;
+    position: relative;
 }
 
-
-.content1 {
-    max-width: 960px;
-    margin: 0 auto;
+/* Efeito de folhas decorativas */
+#sobrenos::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    z-index: 0;
 }
 
+#sobrenos .container {
+    position: relative;
+    z-index: 1;
+}
 
-.sobrenos {
-    text-align: center;
-    font-size: 2.5rem;
+/* Título centralizado com decoração */
+.section-title {
+    font-size: 2.8rem;
     color: #2d572c;
-    margin-bottom: 40px;
-    letter-spacing: 1px;
+    position: relative;
+    margin-bottom: 50px;
     font-weight: 700;
+    display: inline-block;
 }
 
 
-.formatacao .text {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+
+/* Efeito de animação fade-in melhorado */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fade-in.animate {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Estilos para melhorar a formatação do texto */
+.about-content p {
+    line-height: 1.9;
     font-size: 1.1rem;
-    line-height: 1.75;
+    color: #444;
 }
 
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.about-content .lead {
+    font-size: 1.3rem !important;
+    font-weight: 600 !important;
+    color: #2d572c !important;
+    position: relative;
+    padding-left: 20px;
 }
 
-.formatacao {
-  opacity: 0;
+.about-content .lead::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: linear-gradient(to bottom, #4caf50, #8bc34a);
+    border-radius: 3px;
 }
 
-.formatacao.animate {
-    animation: fadeInUp 1s ease-out forwards;
+/* Estilizar os ícones da sustentabilidade */
+.about-content .fs-1 {
+    color: #4caf50;
+    margin-bottom: 15px;
+    transition: all 0.4s ease;
+    background: rgba(76, 175, 80, 0.1);
+    width: 80px;
+    height: 80px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
 }
 
+.about-content .col-md-3:hover .fs-1 {
+    transform: translateY(-5px) scale(1.1);
+    background: rgba(76, 175, 80, 0.2);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.2);
+}
+
+.about-content h5 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2d572c;
+    transition: color 0.3s ease;
+}
+
+.about-content .col-md-3:hover h5 {
+    color: #4caf50;
+}
+
+/* Estilos para a imagem */
+.position-relative img {
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    border: 5px solid white;
+}
+
+.position-relative:hover img {
+    transform: scale(1.03);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo do círculo "Desde" */
+.position-absolute.bg-success {
+    background: linear-gradient(135deg, #4caf50, #8bc34a) !important;
+    box-shadow: 0 5px 20px rgba(76, 175, 80, 0.4);
+    transition: transform 0.5s ease;
+    z-index: 2;
+}
+
+.position-relative:hover .position-absolute.bg-success {
+    transform: translate(-50%, -50%) rotate(10deg) scale(1.05);
+}
+
+/* Responsividade */
 @media (max-width: 768px) {
-    .sobrenos {
-        font-size: 2rem;
+    #sobrenos {
+        padding: 60px 0;
     }
-
-    .formatacao .text {
-        font-size: 1rem;
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .about-content .lead {
+        font-size: 1.15rem !important;
+    }
+    
+    .about-content .mb-4 {
+        font-size: 0.95rem;
+    }
+    
+    .position-absolute.bg-success {
+        width: 90px !important;
+        height: 90px !important;
+        font-size: 0.8rem;
     }
 }
