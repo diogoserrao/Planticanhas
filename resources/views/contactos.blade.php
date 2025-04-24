@@ -1,10 +1,18 @@
+<head>
+
+    <link rel="stylesheet" href="contactos.css">
+
+</head>
+
 <section id="contactos" class="contacts-section py-5">
     <div class="container">
-        <h2 class="section-title">Entre em Contacto</h2>
 
-        <div class="row mb-5">
-            <div class="col-md-8 mx-auto text-center">
-                <p class="lead">Estamos disponíveis para responder a todas as suas perguntas ou agendar uma visita às nossas estufas.</p>
+        <div class="text-center mb-5">
+            <h2 class="section-title">Entre em Contacto</h2>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <p class="section-subtitle">Estamos disponíveis para responder a todas as suas perguntas ou agendar uma visita às nossas estufas.</p>
+                </div>
             </div>
         </div>
 
@@ -60,6 +68,17 @@
                         <div class="flex-grow-1 ms-3">
                             <p class="mb-0"><strong>Morada</strong></p>
                             <p class="mb-0">Caminho do Outeiro, nº 1<br>9360-507 Ponta do Sol</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-top">
+                        <p class="mb-3"><strong>Segue-nos nas redes sociais</strong></p>
+                        <div class="social-links justify-content-start">
+
+                        <a href="#" class="social-link facebook spin-hover"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link instagram spin-hover"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link whatsapp spin-hover"><i class="fab fa-whatsapp"></i></a>
+                        
                         </div>
                     </div>
 
