@@ -30,7 +30,3 @@ Route::middleware('auth')->group(function () {
     Route::resource('banners', BannerController::class);
 });
 
-
-#Route::get('/cafe', function () {
- #   return view('cafe');
-#});
