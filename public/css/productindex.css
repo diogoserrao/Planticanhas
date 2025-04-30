@@ -26,6 +26,7 @@
 /* Tabela de listagem de produtos */
 .admin-table-responsive {
     margin-bottom: 0;
+    overflow-x: auto;
 }
 
 /* Estilos das células da tabela */
@@ -79,7 +80,7 @@
 .admin-button-group {
     display: flex;
     justify-content: center;
-    gap: 8px;
+    gap: 15px;
 }
 
 /* Estado vazio (quando não há produtos) */
@@ -93,6 +94,41 @@
     font-size: 3rem;
     color: #dee2e6;
     margin-bottom: 15px;
+}
+
+.admin-card-header .btn {
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.admin-card-header .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.admin-card-header .btn-back {
+    background-color: #5a6268;
+    color: white;
+    border: none;
+}
+
+.admin-card-header .btn-back:hover {
+    background-color: #4a5258;
+    color: white;
+}
+
+.admin-card-header .btn-create {
+    background-color: #0465c0;
+    color: white;
+    border: none;
+}
+
+.admin-card-header .btn-create:hover {
+    background-color: #0465c0;
+    color: white;
 }
 
 /* Alertas */
@@ -128,15 +164,28 @@
     .admin-card-header {
         flex-direction: column;
         align-items: flex-start;
+        padding: 0.75rem 1rem;
     }
     
     .admin-card-header div {
         margin-top: 1rem;
         display: flex;
         width: 100%;
+        gap: 10px;
     }
     
     .admin-card-header .btn {
         flex-grow: 1;
+        padding: 0.6rem 0.8rem;
+    }
+    .table td {
+        font-size: 0.85rem; 
+    }
+}
+
+@media (max-width: 360px) {
+    .admin-image-thumbnail {
+        width: 50px;
+        height: 40px;
     }
 }

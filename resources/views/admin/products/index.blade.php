@@ -10,21 +10,21 @@
     <div class="admin-card-header card-header d-flex justify-content-between align-items-center">
         <h4 class="admin-title">Lista de Produtos</h4>
         <div>
-            <a href="{{ route('dashboard') }}" class="btn btn-outline-secondary me-2">
+            <a href="{{ route('dashboard') }}" class="btn btn-back">
                 <i class="fas fa-arrow-left me-2"></i>Voltar
             </a>
-            <a href="{{ route('products.create') }}" class="btn btn-primary">
+            <a href="{{ route('products.create') }}" class="btn btn-create ms-2">
                 <i class="fas fa-plus-circle me-2"></i>Novo Produto
             </a>
         </div>
     </div>
     <div class="card-body">
         @if(session('success'))
-            <div id="success-alert" class="alert alert-success fade show" role="alert">
-                {{ session('success') }}
-            </div>
+        <div id="success-alert" class="alert alert-success fade show" role="alert">
+            {{ session('success') }}
+        </div>
         @endif
-        
+
         @if($products->count() > 0)
         <div class="admin-table-responsive table-responsive">
             <table class="table table-hover align-middle text-center">
@@ -104,13 +104,13 @@
     // Script para fazer a mensagem de sucesso desaparecer após 5 segundos
     document.addEventListener('DOMContentLoaded', function() {
         const successAlert = document.getElementById('success-alert');
-        
+
         if (successAlert) {
             // Adicionar classe para iniciar o efeito de fadeout após 3 segundos
             setTimeout(function() {
                 successAlert.classList.add('fade-out');
             }, 3000);
-            
+
             // Remover completamente após o término da animação (5 segundos total)
             setTimeout(function() {
                 successAlert.remove();
