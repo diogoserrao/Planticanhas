@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Banner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Log;
 
 class BannerController extends Controller
 {
     public function index()
     {
         $banners = Banner::orderBy('order')->get();
+    
         return view('admin.banners.index', compact('banners'));
     }
 
@@ -21,24 +26,30 @@ class BannerController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'title' => 'nullable|max:255',
-            'subtitle' => 'nullable|max:255',
-            'image' => 'required|image|max:2048',
-            'link' => 'nullable|url|max:255',
-            'active' => 'boolean',
-            'order' => 'integer|min:0',
-        ]);
+        try {
+            $validated = $request->validate([
+                'image' => 'required|image|max:2048',
+                'active' => 'boolean',
+                'order' => 'nullable|integer|min:0',
+            ]);
 
-        if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('banners', 'public');
-            $validated['image'] = $path;
+            $data = [
+                'active' => $request->has('active'),
+                'order' => $request->input('order', 0)
+            ];
+
+            if ($request->hasFile('image')) {
+                $path = $request->file('image')->store('banners', 'public');
+                $data['image'] = $path;
+            }
+
+            Banner::create($data);
+
+            return redirect()->route('banners.index')
+                ->with('success', 'Banner criado com sucesso.');
+        } catch (\Exception $e) {
+            return back()->withInput()->withErrors(['error' => 'Erro ao salvar: ' . $e->getMessage()]);
         }
-
-        Banner::create($validated);
-
-        return redirect()->route('banners.index')
-            ->with('success', 'Banner criado com sucesso.');
     }
 
     public function edit(Banner $banner)
@@ -50,11 +61,9 @@ class BannerController extends Controller
     {
         $validated = $request->validate([
             'title' => 'nullable|max:255',
-            'subtitle' => 'nullable|max:255',
             'image' => 'nullable|image|max:2048',
-            'link' => 'nullable|url|max:255',
+            'link' => 'nullable|string|max:255',
             'active' => 'boolean',
-            'order' => 'integer|min:0',
         ]);
 
         if ($request->hasFile('image')) {
@@ -76,7 +85,7 @@ class BannerController extends Controller
         if ($banner->image) {
             Storage::disk('public')->delete($banner->image);
         }
-        
+
         $banner->delete();
 
         return redirect()->route('banners.index')

@@ -6,11 +6,16 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
 
 // Site Routes
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+Route::resource('banners', BannerController::class);
+
 
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 
@@ -20,7 +25,7 @@ Route::post('/login', [AdminAuthController::class, 'login']);
 Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
 
 // Protected Routes (sem prefixo admin)
-Route::middleware('auth')->group(function () {
+//Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
     
     // Products Routes
@@ -28,5 +33,5 @@ Route::middleware('auth')->group(function () {
     
     // Banners Routes
     Route::resource('banners', BannerController::class);
-});
+//});
 

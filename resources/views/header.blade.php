@@ -43,22 +43,22 @@
 
     <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://th.bing.com/th/id/R.d343136b443ca9810fb04873a294fea8?rik=eX3AWThE9linYw&pid=ImgRaw&r=0" class="d-block w-100" alt="Imagem de plantas em destaque">
+            @foreach($banners as $key => $banner)
+            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                @if(Str::startsWith($banner->image, 'http') || Str::startsWith($banner->image, '/'))
+                    <img src="{{ $banner->image }}" class="d-block w-100" alt="Imagem de plantas em destaque">
+                @else
+                    <img src="{{ asset('storage/' . $banner->image) }}" class="d-block w-100" alt="Imagem de plantas em destaque">
+                @endif
             </div>
-            <div class="carousel-item">
-                <img src="https://th.bing.com/th/id/R.85298e4ffac423a5c97f4352fdd28dc5?rik=baPkqOL2p8fENw&pid=ImgRaw&r=0" class="d-block w-100" alt="Imagem de plantas em destaque">
-            </div>
-            <div class="carousel-item">
-                <img src="https://th.bing.com/th/id/R.a51ea741153816670470a2b2f28a9c44?rik=Q4225SMyhyxqPg&pid=ImgRaw&r=0" class="d-block w-100" alt="Imagem de plantas em destaque">
-            </div>
+            @endforeach
         </div>
-        
+
         <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        
+
         <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
