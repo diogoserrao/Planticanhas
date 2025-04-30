@@ -1,5 +1,8 @@
 @extends('admin.layouts.app')
 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 @section('content')
 <div class="card border-0 shadow rounded-4">
     <div class="card-header bg-white d-flex justify-content-between align-items-center py-4">
@@ -32,11 +35,11 @@
                         <td>{{ $banner->id }}</td>
                         <td>
                             @php
-                                $src = Str::startsWith($banner->image, ['http', '/']) 
-                                    ? $banner->image 
-                                    : asset('storage/' . $banner->image);
+                            $src = Str::startsWith($banner->image, ['http', '/'])
+                            ? $banner->image
+                            : asset('storage/' . $banner->image);
                             @endphp
-                            <img src="{{ $src }}" alt="Imagem do banner" class="img-thumbnail rounded" style="width: 100px; height: auto;">
+                            <img src="{{ $src }}" class="img-fluid rounded" style="max-width: 100px;" alt="Imagem do banner">
                         </td>
                         <td>
                             @if($banner->active)
@@ -47,12 +50,16 @@
                         </td>
                         <td>{{ $banner->order }}</td>
                         <td>
-                            <div class="btn-group" role="group">
-                                <a href="{{ route('banners.edit', $banner) }}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="{{ route('banners.edit', $banner) }}" class="btn btn-sm btn-success rounded-pill">
+                                    <i class="fas fa-edit me-1"></i> Editar
+                                </a>
                                 <form action="{{ route('banners.destroy', $banner) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Tem certeza que deseja excluir este banner?')">Excluir</button>
+                                    <button type="submit" class="btn btn-sm btn-danger rounded-pill" onclick="return confirm('Tem certeza que deseja excluir este banner?')">
+                                        <i class="fas fa-trash-alt me-1"></i> Excluir
+                                    </button>
                                 </form>
                             </div>
                         </td>
