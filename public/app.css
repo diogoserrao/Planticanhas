@@ -148,6 +148,25 @@ section {
     opacity: 1;
 }
 
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.default-icon, .close-icon {
+    transition: opacity 0.3s ease;
+}
+
+.close-icon {
+    font-size: 1.5rem;
+    color: #000; /* ou a cor que preferir */
+}
+
 /* Responsive adjustments */
 @media (max-width: 991.98px) {
     .navbar-brand {
@@ -156,6 +175,9 @@ section {
 
     .btn-logo {
         max-height: 40px;
+    }
+    html {
+        scroll-padding-top: 200px; 
     }
 }
 
@@ -171,10 +193,17 @@ section {
     #heroCarousel {
         height: 80vh;
     }
+    html {
+        scroll-padding-top: 200px; 
+    }
 }
 
 @media (max-width: 575.98px) {
     #heroCarousel {
         height: 70vh;
+    }
+
+    html {
+        scroll-padding-top: 200px; 
     }
 }

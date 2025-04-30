@@ -2,7 +2,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ asset('products.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/productindex.css') }}">
 </head>
 
 @section('content')
@@ -20,9 +20,8 @@
     </div>
     <div class="card-body">
         @if(session('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <div id="success-alert" class="alert alert-success fade show" role="alert">
                 {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
         
@@ -100,4 +99,32 @@
         @endif
     </div>
 </div>
+
+<script>
+    // Script para fazer a mensagem de sucesso desaparecer após 5 segundos
+    document.addEventListener('DOMContentLoaded', function() {
+        const successAlert = document.getElementById('success-alert');
+        
+        if (successAlert) {
+            // Adicionar classe para iniciar o efeito de fadeout após 3 segundos
+            setTimeout(function() {
+                successAlert.classList.add('fade-out');
+            }, 3000);
+            
+            // Remover completamente após o término da animação (5 segundos total)
+            setTimeout(function() {
+                successAlert.remove();
+            }, 5000);
+        }
+    });
+</script>
+
+<style>
+    /* Estilo para animação de fadeout */
+    .fade-out {
+        opacity: 1;
+        transition: opacity 2s ease-out;
+        opacity: 0;
+    }
+</style>
 @endsection

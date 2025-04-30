@@ -4,7 +4,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('global.css') }}">
+
     <link rel="stylesheet" href="{{ asset('app.css') }}">
     <title>PlantiCanhas - Alimentos Frescos de Estufa</title>
 </head>
@@ -46,9 +46,9 @@
             @foreach($banners as $key => $banner)
             <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
                 @if(Str::startsWith($banner->image, 'http') || Str::startsWith($banner->image, '/'))
-                    <img src="{{ $banner->image }}" class="d-block w-100" alt="Imagem de plantas em destaque">
+                <img src="{{ $banner->image }}" class="d-block w-100" alt="Imagem de plantas em destaque">
                 @else
-                    <img src="{{ asset('storage/' . $banner->image) }}" class="d-block w-100" alt="Imagem de plantas em destaque">
+                <img src="{{ asset('storage/' . $banner->image) }}" class="d-block w-100" alt="Imagem de plantas em destaque">
                 @endif
             </div>
             @endforeach
@@ -66,4 +66,39 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+
+            // Fechar o menu ao clicar num link (mobile)
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navbarCollapse.classList.contains('show')) {
+                        // Se o menu estiver aberto, feche-o
+                        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                        bsCollapse.hide();
+                    }
+                });
+            });
+
+            // Alternar o menu ao clicar no botão de toggling
+            navbarToggler.addEventListener('click', function() {
+                // Alternar o menu de colapso
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                    toggle: true
+                });
+
+                // Alternar o ícone de hamburguer
+                if (navbarCollapse.classList.contains('show')) {
+                    // Menu aberto
+                    navbarToggler.setAttribute('aria-expanded', 'true');
+                } else {
+                    // Menu fechado
+                    navbarToggler.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    </script>
 </body>

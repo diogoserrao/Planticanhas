@@ -1,0 +1,185 @@
+/* ==== CSS para Página de Edição de Produtos (edit) ==== */
+
+/* Estilos gerais do card */
+.admin-card {
+    border: none;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border-radius: 0.5rem;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-title {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Estilos dos campos do formulário */
+.form-label {
+    font-weight: 500;
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    border-radius: 0.375rem;
+    border: 1px solid #e2e8f0;
+    padding: 0.625rem 0.75rem;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(39, 174, 96, 0.25);
+    border-color: #27ae60;
+}
+
+/* Textos de ajuda */
+.form-help-text {
+    color: #718096;
+    font-size: 0.875em;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* Checkbox estilizado */
+.form-check-input {
+    width: 1.25em;
+    height: 1.25em;
+    margin-top: 0.1em;
+    border: 1px solid #cbd5e0;
+}
+
+.form-check-input:checked {
+    background-color: #27ae60;
+    border-color: #27ae60;
+}
+
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.15rem rgba(39, 174, 96, 0.25);
+    border-color: #27ae60;
+}
+
+.form-check-label {
+    margin-bottom: 0;
+    margin-left: 0.25rem;
+    font-weight: 400;
+}
+
+/* Preview de imagem */
+.product-preview {
+    max-width: 150px;
+    max-height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 0.75rem;
+}
+
+/* Upload de imagem */
+input[type="file"] {
+    padding: 0.375rem 0.75rem;
+}
+
+/* Botões de ação */
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 1.5rem;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background-color: #27ae60;
+    border-color: #27ae60;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #219653;
+    border-color: #219653;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.btn-outline-secondary {
+    color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: #fff;
+}
+
+/* Alertas */
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+    border-radius: 0.375rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.alert-danger {
+    background-color: #fdedec;
+    color: #c0392b;
+    border-color: #f5b7b1;
+    border-radius: 0.375rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.alert-danger ul {
+    margin-bottom: 0;
+    padding-left: 1.25rem;
+}
+
+/* Feedback de erro nos campos */
+.invalid-feedback {
+    color: #e74c3c;
+    font-size: 0.875em;
+}
+
+/* Responsividade */
+@media (max-width: 767px) {
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .row {
+        margin-left: -0.5rem;
+        margin-right: -0.5rem;
+    }
+    
+    .col-md-6, .col-12 {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .action-buttons .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}

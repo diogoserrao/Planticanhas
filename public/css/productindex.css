@@ -1,0 +1,142 @@
+/* ==== CSS para Página de Listagem de Produtos (index) ==== */
+
+/* Estilos gerais */
+.admin-card {
+    border: none;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Header do card */
+.admin-card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-title {
+    margin-bottom: 0;
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1.25rem;
+}
+
+/* Tabela de listagem de produtos */
+.admin-table-responsive {
+    margin-bottom: 0;
+}
+
+/* Estilos das células da tabela */
+.table th {
+    font-weight: 600;
+    color: #4a5568;
+    background-color: #f8f9fa;
+    border-bottom-width: 1px;
+}
+
+.table td {
+    vertical-align: middle;
+    padding: 0.75rem;
+}
+
+/* Miniaturas de imagens */
+.admin-image-thumbnail {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Badges de status */
+.badge {
+    padding: 0.5em 0.8em;
+    font-weight: 500;
+    border-radius: 0.25rem;
+}
+
+.bg-success {
+    background-color: #27ae60 !important;
+}
+
+.bg-warning {
+    background-color: #f39c12 !important;
+    color: #fff;
+}
+
+.bg-info {
+    background-color: #3498db !important;
+    color: #fff;
+}
+
+.bg-secondary {
+    background-color: #95a5a6 !important;
+}
+
+/* Grupo de botões de ações */
+.admin-button-group {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Estado vazio (quando não há produtos) */
+.admin-empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6c757d;
+}
+
+.admin-empty-icon {
+    font-size: 3rem;
+    color: #dee2e6;
+    margin-bottom: 15px;
+}
+
+/* Alertas */
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+/* Responsividade */
+@media (max-width: 767px) {
+    .admin-button-group {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .admin-button-group .btn {
+        margin-bottom: 5px;
+        width: 100%;
+    }
+    
+    .admin-image-thumbnail {
+        width: 60px;
+        height: 45px;
+    }
+    
+    .table-responsive {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .admin-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .admin-card-header div {
+        margin-top: 1rem;
+        display: flex;
+        width: 100%;
+    }
+    
+    .admin-card-header .btn {
+        flex-grow: 1;
+    }
+}
