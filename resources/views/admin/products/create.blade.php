@@ -1,5 +1,10 @@
 @extends('admin.layouts.app')
 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ asset('products.css') }}">
+</head>
+
 @section('content')
 <div class="card border-0 shadow-sm">
     <div class="card-header bg-white d-flex justify-content-between align-items-center py-3">
@@ -28,36 +33,29 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="price" class="form-label">Preço (€)</label>
-                    <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price" step="0.01" min="0" value="{{ old('price') }}">
-                    @error('price')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="order" class="form-label">Ordem</label>
-                    <input type="number" class="form-control @error('order') is-invalid @enderror" id="order" name="order" min="0" value="{{ old('order', 0) }}">
-                    @error('order')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <div class="col-md-4 mb-3">
+                
+                <div class="col-md-6 mb-3">
                     <label class="form-label d-block">Status</label>
-                    <div class="form-check form-check-inline">
+                    <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="available" name="available" value="1" {{ old('available', 1) ? 'checked' : '' }}>
                         <label class="form-check-label" for="available">Disponível</label>
                     </div>
-                    <div class="form-check form-check-inline">
+                </div>
+                
+                <div class="col-md-6 mb-3">
+                    <label class="form-label d-block">Destaque</label>
+                    <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="featured" name="featured" value="1" {{ old('featured') ? 'checked' : '' }}>
-                        <label class="form-check-label" for="featured">Destaque</label>
+                        <label class="form-check-label" for="featured">Produto em Destaque</label>
                     </div>
                 </div>
 
-                <div class="col-12 mb-3">
+                <div class="col-md-6 mb-3">
+                    <label for="order" class="form-label">Ordem</label>
+                    <input type="number" class="form-control" id="order" name="order" value="{{ old('order', 0) }}" min="0">
+                </div>
+
+                <div class="col-12 mb-4">
                     <label for="description" class="form-label">Descrição <span class="text-danger">*</span></label>
                     <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="4" required>{{ old('description') }}</textarea>
                     @error('description')
@@ -66,7 +64,7 @@
                 </div>
 
                 <div class="col-12 mb-4">
-                    <label for="image" class="form-label">Imagem do Produto</label>
+                    <label for="image" class="form-label">Imagem do Produto <span class="text-danger">*</span></label>
                     <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" accept="image/*">
                     <div class="form-text">Formatos aceitos: JPG, PNG. Tamanho máximo: 2MB.</div>
                     @error('image')
@@ -76,12 +74,22 @@
 
                 <div class="col-12 d-flex justify-content-end">
                     <a href="{{ route('products.index') }}" class="btn btn-outline-secondary me-2">Cancelar</a>
-                    <button type="submit" class="btn btn-success">
+                    <button type="submit" class="btn btn-primary">
                         <i class="fas fa-save me-2"></i>Salvar Produto
                     </button>
                 </div>
             </div>
         </form>
+        
+        @if ($errors->any())
+        <div class="alert alert-danger mt-3">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
     </div>
 </div>
 @endsection

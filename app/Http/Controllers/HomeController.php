@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     /**
-     * Display the home page with banner data.
+     * Display the home page with banners and products.
      *
      * @return \Illuminate\View\View
      */
@@ -18,10 +19,14 @@ class HomeController extends Controller
         $banners = Banner::where('active', true)
             ->orderBy('order')
             ->get();
-            
-        // You can add other data needed for the homepage here
         
-        // Return the index view with banners data
-        return view('index', compact('banners'));
+        // Fetch products grouped by category
+        $products = Product::orderBy('category')
+            ->orderBy('order')
+            ->get()
+            ->groupBy('category');
+        
+        // Return the index view with all data
+        return view('index', compact('banners', 'products'));
     }
 }

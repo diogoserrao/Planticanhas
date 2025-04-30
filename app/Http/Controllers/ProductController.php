@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::orderBy('order')->get();
+        $products = Product::orderBy('category')->orderBy('order')->get();
         return view('admin.products.index', compact('products'));
     }
 
@@ -21,26 +21,38 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|max:255',
-            'description' => 'required',
-            'category' => 'required|max:255',
-            'price' => 'nullable|numeric|min:0',
-            'image' => 'nullable|image|max:2048',
-            'available' => 'boolean',
-            'featured' => 'boolean',
-            'order' => 'integer|min:0',
-        ]);
+        try {
+            $validated = $request->validate([
+                'name' => 'required|max:255',
+                'description' => 'required',
+                'category' => 'required|max:255',
+                'image' => 'nullable|image|max:2048',
+                'available' => 'boolean',
+                'featured' => 'boolean',
+                'order' => 'integer|min:0',
+            ]);
 
-        if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('products', 'public');
-            $validated['image'] = $path;
+            $data = [
+                'name' => $request->input('name'),
+                'description' => $request->input('description'),
+                'category' => $request->input('category'),
+                'available' => $request->has('available'),
+                'featured' => $request->has('featured'),
+                'order' => $request->input('order', 0)
+            ];
+
+            if ($request->hasFile('image')) {
+                $path = $request->file('image')->store('products', 'public');
+                $data['image'] = $path;
+            }
+
+            Product::create($data);
+
+            return redirect()->route('products.index')
+                ->with('success', 'Produto criado com sucesso.');
+        } catch (\Exception $e) {
+            return back()->withInput()->withErrors(['error' => 'Erro ao salvar: ' . $e->getMessage()]);
         }
-
-        Product::create($validated);
-        
-        return redirect()->route('products.index')
-            ->with('success', 'Produto criado com sucesso.');
     }
 
     public function edit(Product $product)
@@ -54,23 +66,31 @@ class ProductController extends Controller
             'name' => 'required|max:255',
             'description' => 'required',
             'category' => 'required|max:255',
-            'price' => 'nullable|numeric|min:0',
             'image' => 'nullable|image|max:2048',
             'available' => 'boolean',
             'featured' => 'boolean',
             'order' => 'integer|min:0',
         ]);
 
+        $data = [
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'category' => $request->input('category'),
+            'available' => $request->has('available'),
+            'featured' => $request->has('featured'),
+            'order' => $request->input('order', 0)
+        ];
+
         if ($request->hasFile('image')) {
             if ($product->image) {
                 Storage::disk('public')->delete($product->image);
             }
             $path = $request->file('image')->store('products', 'public');
-            $validated['image'] = $path;
+            $data['image'] = $path;
         }
 
-        $product->update($validated);
-        
+        $product->update($data);
+
         return redirect()->route('products.index')
             ->with('success', 'Produto atualizado com sucesso.');
     }
@@ -80,12 +100,16 @@ class ProductController extends Controller
         if ($product->image) {
             Storage::disk('public')->delete($product->image);
         }
-        
+
         $product->delete();
-        
+
         return redirect()->route('products.index')
             ->with('success', 'Produto excluído com sucesso.');
     }
 
-
+    public function showProducts()
+    {
+        $products = Product::orderBy('category')->orderBy('order')->get()->groupBy('category');
+        return view('produtos', compact('products'));
+    }
 }

@@ -1,0 +1,255 @@
+/* ==== Estilos para Seção de Produtos ==== */
+
+/* Títulos de seções */
+.section-title {
+    position: relative;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #27ae60;
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* Títulos de categorias */
+.category-title {
+    font-weight: 600;
+    color: #2c3e50;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.category-title:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: #27ae60;
+}
+
+/* Cards de produtos */
+.card-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.product-image-container {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+.product-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+}
+
+.badge {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.5em 0.8em;
+    border-radius: 30px;
+}
+
+.badge.available {
+    background-color: #27ae60;
+    color: white;
+}
+
+.badge.on-request {
+    background-color: #f39c12;
+    color: white;
+}
+
+.product-body {
+    padding: 1.25rem;
+}
+
+.product-title {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #2c3e50;
+}
+
+.product-description {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.75rem;
+    border-top: 1px solid #ecf0f1;
+}
+
+.season-badge {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+}
+
+/* Botão de Encomenda */
+.btn-order-now {
+    background-color: #27ae60;
+    color: white;
+    border-radius: 50px;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid #27ae60;
+}
+
+.btn-order-now:hover {
+    background-color: #219653;
+    border-color: #219653;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(39, 174, 96, 0.2);
+    color: white;
+}
+
+/* Animações */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsividade */
+@media (max-width: 767px) {
+    .product-image-container {
+        height: 180px;
+    }
+    
+    .product-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .section-title:after {
+        margin: 10px auto 0;
+    }
+}
+
+/* Visualização de produtos em tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+    .product-image-container {
+        height: 200px;
+    }
+    
+    .product-description {
+        font-size: 0.85rem;
+    }
+}
+
+/* Estilos para o efeito hover */
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== ESTILOS PARA O PAINEL DE ADMIN ===== */
+
+/* Estilo para miniaturas de imagens na tabela de admin */
+.admin-image-thumbnail {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Estilo para o cabeçalho do card de admin */
+.admin-card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Estilo para o título na área de admin */
+.admin-title {
+    margin-bottom: 0;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Estilo para o grupo de botões na tabela */
+.admin-button-group {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Estilo para estado vazio */
+.admin-empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6c757d;
+}
+
+.admin-empty-icon {
+    font-size: 3rem;
+    color: #dee2e6;
+    margin-bottom: 15px;
+}
+
+/* Estilos para imagem de preview na tela de edição */
+.product-preview {
+    max-width: 150px;
+    max-height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Responsividade para área de admin */
+@media (max-width: 767px) {
+    .admin-button-group {
+        flex-direction: column;
+    }
+    
+    .admin-button-group .btn {
+        margin-bottom: 5px;
+    }
+    
+    .admin-image-thumbnail {
+        width: 60px;
+        height: 45px;
+    }
+}
