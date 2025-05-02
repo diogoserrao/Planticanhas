@@ -14,7 +14,7 @@
     <div class="card-header">
         <h5 class="banner-title">Editar Banner</h5>
         <div class="header-buttons">
-            <a href="{{ route('banners.index') }}" class="btn btn-outline-secondary">
+            <a href="{{ route('banners.index') }}" class="btn btn-secondary">
                 <i class="fas fa-arrow-left me-2"></i>Voltar
             </a>
         </div>
@@ -81,7 +81,7 @@
                 </div>
 
                 <div class="col-12 action-buttons">
-                    <a href="{{ route('banners.index') }}" class="btn btn-outline-secondary">Cancelar</a>
+                    <a href="{{ route('banners.index') }}" class="btn btn-secondary">Cancelar</a>
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-save me-2"></i>Atualizar Banner
                     </button>

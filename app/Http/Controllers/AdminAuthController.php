@@ -22,12 +22,13 @@ class AdminAuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+            // Alterar esta linha para redirecionar para /admin
+            return redirect()->route('admin.dashboard');
         }
 
         return back()->withErrors([
             'email' => 'As credenciais fornecidas não correspondem aos nossos registros.',
-        ])->withInput($request->except('password'));
+        ]);
     }
 
     public function logout(Request $request)

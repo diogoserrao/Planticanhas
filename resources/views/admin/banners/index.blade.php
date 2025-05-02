@@ -14,7 +14,7 @@
     <div class="admin-card-header card-header d-flex justify-content-between align-items-center">
         <h4 class="admin-title">Lista de Banners</h4>
         <div>
-            <a href="{{ route('dashboard') }}" class="btn btn-secondary me-2">
+            <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary me-2">
                 <i class="fas fa-arrow-left me-2"></i>Voltar
             </a>
             <a href="{{ route('banners.create') }}" class="btn btn-primary">

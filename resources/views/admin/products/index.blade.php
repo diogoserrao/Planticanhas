@@ -10,10 +10,10 @@
     <div class="admin-card-header card-header d-flex justify-content-between align-items-center">
         <h4 class="admin-title">Lista de Produtos</h4>
         <div>
-            <a href="{{ route('dashboard') }}" class="btn btn-back">
+            <a href="{{ route('admin.dashboard') }}" class="btn btn-back">
                 <i class="fas fa-arrow-left me-2"></i>Voltar
             </a>
-            <a href="{{ route('products.create') }}" class="btn btn-create ms-2">
+            <a href="{{ route('admin.products.create') }}" class="btn btn-create ms-2">
                 <i class="fas fa-plus-circle me-2"></i>Novo Produto
             </a>
         </div>
@@ -71,10 +71,10 @@
                         <td>{{ $product->order }}</td>
                         <td>
                             <div class="admin-button-group">
-                                <a href="{{ route('products.edit', $product) }}" class="btn btn-success">
+                                <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-success">
                                     <i class="fas fa-edit"></i> Editar
                                 </a>
-                                <form action="{{ route('products.destroy', $product) }}" method="POST" class="d-inline m-0">
+                                <form action="{{ route('admin.products.destroy', $product) }}" method="POST" class="d-inline m-0">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir este produto?')">

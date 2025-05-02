@@ -25,13 +25,9 @@ Route::post('/login', [AdminAuthController::class, 'login']);
 Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
 
 // Protected Routes (sem prefixo admin)
-//Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
-    
-    // Products Routes
-    Route::resource('products', ProductController::class);
-    
-    // Banners Routes
-    Route::resource('banners', BannerController::class);
-//});
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('dashboard');
+    Route::resource('products', ProductController::class); // Gera admin.products.index
+    Route::resource('banners', BannerController::class);  // Gera admin.banners.index
+});
 

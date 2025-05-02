@@ -48,7 +48,7 @@ class ProductController extends Controller
 
             Product::create($data);
 
-            return redirect()->route('products.index')
+            return redirect()->route('admin.products.index')
                 ->with('success', 'Produto criado com sucesso.');
         } catch (\Exception $e) {
             return back()->withInput()->withErrors(['error' => 'Erro ao salvar: ' . $e->getMessage()]);
@@ -91,7 +91,7 @@ class ProductController extends Controller
 
         $product->update($data);
 
-        return redirect()->route('products.index')
+        return redirect()->route('admin.products.index')
             ->with('success', 'Produto atualizado com sucesso.');
     }
 
@@ -103,7 +103,7 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return redirect()->route('products.index')
+        return redirect()->route('admin.products.index')
             ->with('success', 'Produto excluído com sucesso.');
     }
 

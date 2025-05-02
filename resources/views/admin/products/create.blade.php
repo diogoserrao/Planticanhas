@@ -9,12 +9,12 @@
 <div class="card border-0 shadow-sm">
     <div class="card-header bg-white d-flex justify-content-between align-items-center py-3">
         <h5 class="mb-0">Criar Novo Produto</h5>
-        <a href="{{ route('products.index') }}" class="btn btn-outline-secondary">
+        <a href="{{ route('admin.products.index') }}" class="btn btn-secondary">
             <i class="fas fa-arrow-left me-2"></i>Voltar
         </a>
     </div>
     <div class="card-body">
-        <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="row">
@@ -73,7 +73,7 @@
                 </div>
 
                 <div class="col-12 d-flex justify-content-end">
-                    <a href="{{ route('products.index') }}" class="btn btn-outline-secondary me-2">Cancelar</a>
+                    <a href="{{ route('admin.products.index') }}" class="btn btn-secondary me-2">Cancelar</a>
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-save me-2"></i>Salvar Produto
                     </button>

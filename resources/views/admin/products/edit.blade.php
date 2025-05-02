@@ -9,7 +9,7 @@
 <div class="admin-card card shadow-sm">
     <div class="card-header">
         <h5 class="admin-title">Editar Produto</h5>
-        <a href="{{ route('products.index') }}" class="btn btn-outline-secondary">
+        <a href="{{ route('admin.products.index') }}" class="btn btn-outline-secondary">
             <i class="fas fa-arrow-left me-2"></i>Voltar
         </a>
     </div>
@@ -28,7 +28,7 @@
             </div>
         @endif
         
-        <form action="{{ route('products.update', $product) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.products.update', $product) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -115,7 +115,7 @@
                 </div>
 
                 <div class="col-12 action-buttons">
-                    <a href="{{ route('products.index') }}" class="btn btn-outline-secondary">Cancelar</a>
+                    <a href="{{ route('admin.products.index') }}" class="btn btn-outline-secondary">Cancelar</a>
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-save me-2"></i>Atualizar Produto
                     </button>

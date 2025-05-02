@@ -42,7 +42,7 @@
                     </div>
                     <p class="card-description mt-2">Total registados</p>
                 </div>
-                <a href="{{ route('products.index') }}" class="link-arrow link-success">
+                <a href="{{ route('admin.products.index') }}" class="link-arrow link-success">
                     Gerir produtos <i class="fas fa-arrow-right ms-2"></i>
                 </a>
             </div>
@@ -64,7 +64,7 @@
                     </div>
                     <p class="card-description mt-2">Ativos no sistema</p>
                 </div>
-                <a href="{{ route('banners.index') }}" class="link-arrow link-primary">
+                <a href="{{ route('admin.banners.index') }}" class="link-arrow link-primary">
                     Gerir banners <i class="fas fa-arrow-right ms-2"></i>
                 </a>
             </div>
@@ -80,7 +80,7 @@
             <div class="card-section">
                 <div class="actions-grid">
                     <!-- Novo Produto -->
-                    <a href="{{ route('products.create') }}" class="action-btn action-hover">
+                    <a href="{{ route('admin.products.create') }}" class="action-btn action-hover">
                         <div class="action-icon icon-success">
                             <i class="fas fa-plus"></i>
                         </div>
@@ -89,7 +89,7 @@
                     </a>
 
                     <!-- Novo Banner -->
-                    <a href="{{ route('banners.create') }}" class="action-btn action-hover">
+                    <a href="{{ route('admin.banners.create') }}" class="action-btn action-hover">
                         <div class="action-icon icon-primary">
                             <i class="fas fa-plus"></i>
                         </div>

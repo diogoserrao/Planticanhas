@@ -24,7 +24,7 @@
                         <i class="fas fa-times"></i>
                     </span>
                 </button>
-                <a href="{{ route('dashboard') }}" class="mobile-logo">
+                <a href="{{ route('admin.dashboard') }}" class="mobile-logo">
                     <span class="logo-icon">🌿</span>
                     <span class="logo-text">PlantiCanhas</span>
                 </a>
@@ -37,7 +37,7 @@
             <!-- Sidebar -->
             <nav class="sidebar" id="sidebar">
                 <div class="sidebar-header d-none d-lg-block">
-                    <a href="{{ route('dashboard') }}" class="logo">
+                    <a href="{{ route('admin.dashboard') }}" class="logo">
                         <span class="logo-icon">🌿</span>
                         <span class="logo-text">PlantiCanhas</span>
                     </a>
@@ -45,19 +45,19 @@
                 </div>
                 <ul class="nav-menu">
                     <li class="nav-item">
-                        <a href="{{ route('dashboard') }}">
+                        <a href="{{ route('admin.dashboard') }}">
                             <span class="nav-icon">📊</span>
                             <span class="nav-text">Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('products.index') }}">
+                        <a href="{{ route('admin.products.index') }}">
                             <span class="nav-icon">📦</span>
                             <span class="nav-text">Produtos</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('banners.index') }}">
+                        <a href="{{ route('admin.banners.index') }}">
                             <span class="nav-icon">🖼️</span>
                             <span class="nav-text">Banners</span>
                         </a>

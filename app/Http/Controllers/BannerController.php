@@ -45,7 +45,7 @@ class BannerController extends Controller
 
             Banner::create($data);
 
-            return redirect()->route('banners.index')
+            return redirect()->route('admin.banners.index')
                 ->with('success', 'Banner criado com sucesso.');
         } catch (\Exception $e) {
             return back()->withInput()->withErrors(['error' => 'Erro ao salvar: ' . $e->getMessage()]);
@@ -64,8 +64,15 @@ class BannerController extends Controller
             'image' => 'nullable|image|max:2048',
             'link' => 'nullable|string|max:255',
             'active' => 'boolean',
+            'order' => 'nullable|integer|min:0', // Adicionado este campo
         ]);
-
+    
+        // Tratar o campo 'active' quando não está marcado
+        $validated['active'] = $request->has('active');
+        
+        // Tratar o campo 'order' com valor padrão caso não seja fornecido
+        $validated['order'] = $request->input('order', 0);
+    
         if ($request->hasFile('image')) {
             if ($banner->image) {
                 Storage::disk('public')->delete($banner->image);
@@ -73,10 +80,10 @@ class BannerController extends Controller
             $path = $request->file('image')->store('banners', 'public');
             $validated['image'] = $path;
         }
-
+    
         $banner->update($validated);
-
-        return redirect()->route('banners.index')
+    
+        return redirect()->route('admin.banners.index')
             ->with('success', 'Banner atualizado com sucesso.');
     }
 
@@ -88,7 +95,7 @@ class BannerController extends Controller
 
         $banner->delete();
 
-        return redirect()->route('banners.index')
+        return redirect()->route('admin.banners.index')
             ->with('success', 'Banner excluído com sucesso.');
     }
 }
