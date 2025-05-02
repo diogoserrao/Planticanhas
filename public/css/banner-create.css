@@ -1,0 +1,97 @@
+/* ==========================================================
+   BANNER CREATE - Estilos para página de criação de banners
+   ========================================================== */
+
+/* Card principal */
+.card {
+    border: 0;
+    border-radius: 0.75rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+
+.card-header {
+    background-color: #fff;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Formulário */
+.form-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+.form-text {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+/* Indicador de campo obrigatório */
+.text-danger {
+    color: #dc3545 !important;
+}
+
+/* Botões de ação */
+.btn {
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-secondary {
+    color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: white;
+    box-shadow: 0 2px 4px rgba(13, 110, 253, 0.15);
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(13, 110, 253, 0.2);
+}
+
+/* Alertas */
+.alert {
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+    color: #842029;
+}
+
+/* Responsividade */
+@media (max-width: 767px) {
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .card-header a {
+        margin-top: 1rem;
+    }
+    
+    .col-12 {
+        margin-bottom: 1.5rem;
+    }
+}

@@ -1,0 +1,218 @@
+/* ==========================================================
+   BANNER EDIT - Estilos para página de edição de banners
+   ========================================================== */
+
+/* Card principal */
+.banner-card {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    background-color: white;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+    width: 100%;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.banner-title {
+    margin-bottom: 0;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Preview da imagem - ESTILOS PRINCIPAIS ATUALIZADOS */
+.banner-preview-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid #dee2e6;
+    object-fit: contain;
+    background-color: #f8f9fa;
+    padding: 5px;
+}
+
+/* Container da imagem para limitar o tamanho */
+.image-preview-container {
+    max-width: 100%;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Ajuda textual para formulários */
+.form-help-text {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+/* Formulário */
+.form-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+.form-check-label {
+    font-weight: normal;
+}
+
+/* Botões de ação */
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.btn {
+    padding: 0.5rem 1.25rem;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-secondary {
+    color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: white;
+    box-shadow: 0 2px 4px rgba(13, 110, 253, 0.15);
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(13, 110, 253, 0.2);
+}
+
+/* Alertas */
+.alert {
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.alert-success {
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+    color: #0f5132;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+    color: #842029;
+}
+
+/**********************************/
+/* MEDIA QUERIES PARA MOBILE */
+@media (max-width: 768px) {
+    .mobile-header, .mobile-title {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    
+    .banner-card {
+        margin: 0 -15px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .banner-preview-img {
+        max-width: 100%;
+        max-height: 200px; /* Altura máxima para mobile */
+        width: auto;
+        height: auto;
+        margin: 0 auto 1rem;
+    }
+    
+    .form-control, .btn-mobile {
+        padding: 12px 15px;
+        font-size: 16px;
+    }
+    
+    .alert-mobile {
+        font-size: 14px;
+        padding: 12px;
+    }
+    
+    .form-help-text {
+        font-size: 12px;
+    }
+    
+    .action-buttons .btn {
+        width: 100%;
+    }
+    
+    /* Container da imagem em mobile */
+    .image-preview-container {
+        max-height: 250px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f8f9fa;
+        border-radius: 0.25rem;
+        padding: 10px;
+    }
+}
+
+/* Switch mais visível em mobile */
+.form-switch .form-check-input {
+    width: 3em;
+    height: 1.5em;
+}
+
+/* Responsividade geral */
+@media (max-width: 767px) {
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-buttons {
+        margin-top: 1rem;
+        width: 100%;
+    }
+    
+    .header-buttons .btn {
+        width: 100%;
+    }
+    
+    .card-header a {
+        margin-top: 1rem;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .action-buttons .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}

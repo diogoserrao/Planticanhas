@@ -1,117 +1,136 @@
-/* Admin Panel - Global Styles */
+/* ==========================================================
+   ADMIN PANEL - GLOBAL STYLES (usado em várias páginas)
+   ========================================================== */
+
 .admin-card {
     border: 0;
     border-radius: 0.75rem;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
-  }
-  
-  .admin-card-header {
+}
+
+.admin-card-header {
     background-color: #fff;
     padding: 1.5rem 1rem;
     border-bottom: 1px solid #e9ecef;
-  }
-  
-  .admin-title {
+}
+
+.admin-title {
     font-weight: 700;
     margin-bottom: 0;
-  }
-  
-  /* Imagem thumbnail com tamanho ajustado */
-  .admin-image-thumbnail {
+}
+
+.admin-image-thumbnail {
     max-width: 80px;
     max-height: 60px;
     object-fit: cover;
     border-radius: 0.25rem;
     border: 1px solid #dee2e6;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  }
-  
-  .admin-form-container {
+}
+
+.admin-form-container {
     max-width: 800px;
     margin: 0 auto;
-  }
-  
-  /* Form elements styling */
-  .admin-form-section {
+}
+
+.admin-form-section {
     margin-bottom: 2rem;
-  }
-  
-  .required-field::after {
+}
+
+.required-field::after {
     content: '*';
     color: #dc3545;
     margin-left: 3px;
-  }
-  
-  .admin-form-help {
+}
+
+.admin-form-help {
     font-size: 0.875rem;
     color: #6c757d;
-  }
-  
-  /* Button styling */
-  .admin-button-group {
+}
+
+.admin-button-group {
     display: flex;
     gap: 0.5rem;
     justify-content: center;
-  }
-  
-  /* Table styling */
-  .admin-table-responsive {
+}
+
+.admin-table-responsive {
     overflow-x: auto;
-  }
-  
-  /* Estilos para as células da tabela */
-  .table td {
+}
+
+.table td {
     vertical-align: middle;
     padding: 0.75rem;
-  }
-  
-  .table th {
+}
+
+.table th {
     font-weight: 600;
-  }
-  
-  /* Empty state styling */
-  .admin-empty-state {
+}
+
+.admin-empty-state {
     text-align: center;
     padding: 3rem 1rem;
-  }
-  
-  .admin-empty-icon {
+}
+
+.admin-empty-icon {
     font-size: 3rem;
     color: #6c757d;
     margin-bottom: 1rem;
-  }
-  
-  /* Form preview image */
-  .image-preview {
+}
+
+.image-preview {
     max-width: 300px;
     margin-top: 1rem;
     border-radius: 0.25rem;
     border: 1px solid #dee2e6;
-  }
-  
-  /* Status badge styling */
-  .badge {
+}
+
+.badge {
     font-size: 0.85rem;
     font-weight: 500;
     padding: 0.35em 0.65em;
-  }
+}
 
 
-/*EDIT BANNER CSS*//***********************************************************************/
+/* ==========================================================
+   EDITAR BANNER - ESTILOS ESPECÍFICOS
+   ========================================================== */
+
+.banner-card {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
 
 .card-header {
     background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.banner-title {
+    margin-bottom: 0;
+    font-weight: 500;
 }
 
 .banner-preview {
     max-height: 200px;
     margin-bottom: 1rem;
     border-radius: 0.25rem;
+    border: 1px solid #dee2e6;
+}
+
+.banner-preview-img {
+  max-width: 100%;
+  max-height: 160px;
+  object-fit: cover;
+  border-radius: 0.25rem;
+  border: 1px solid #dee2e6;
+  display: block;
+  margin: 0 auto;
 }
 
 .form-help-text {
@@ -124,15 +143,4 @@
     display: flex;
     justify-content: flex-end;
     gap: 0.5rem;
-}
-
-.banner-card {
-    border: none;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-}
-
-.banner-title {
-    margin-bottom: 0;
-    font-weight: 500;
 }

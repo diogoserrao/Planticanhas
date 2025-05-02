@@ -1,6 +1,14 @@
 @extends('admin.layouts.app')
 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ asset('css/banner-create.css') }}">
+</head>
+
 @section('content')
+<div class="content-header">
+    <h1>Banners</h1>
+</div>
 <div class="card border-0 shadow-sm">
     <div class="card-header bg-white d-flex justify-content-between align-items-center py-3">
         <h5 class="mb-0">Criar Novo Banner</h5>

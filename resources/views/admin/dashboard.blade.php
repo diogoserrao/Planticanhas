@@ -1,11 +1,13 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Dashboard')
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 
 <div class="dashboard container-fluid min-vh-100 py-4">
+    <div class="content-header">
+        <h1>Dashboard</h1>
+    </div>
     <!-- Cabeçalho -->
     <div class="mb-4">
         <div class="dashboard-header">
@@ -123,7 +125,7 @@
                         </div>
                         <div class="activity-text">
                             <h6 class="activity-title">Novo produto adicionado</h6>
-                            <p class="activity-time">Smartphone XYZ - há 5 minutos</p>
+                            <p class="activity-time">Milho - há 5 minutos</p>
                         </div>
                         <span class="activity-badge bg-success-light text-success">Produto</span>
                     </div>
@@ -135,7 +137,7 @@
                         </div>
                         <div class="activity-text">
                             <h6 class="activity-title">Banner atualizado</h6>
-                            <p class="activity-time">Promoção de Verão - há 2 horas</p>
+                            <p class="activity-time">Horta - há 2 horas</p>
                         </div>
                         <span class="activity-badge bg-primary-light text-primary">Banner</span>
                     </div>

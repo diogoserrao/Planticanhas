@@ -2,15 +2,19 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ asset('banners.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/banner-index.css') }}">
 </head>
 
 @section('content')
+<div class="content-header">
+    <h1>Banners</h1>
+</div>
 <div class="admin-card card">
+
     <div class="admin-card-header card-header d-flex justify-content-between align-items-center">
         <h4 class="admin-title">Lista de Banners</h4>
         <div>
-            <a href="{{ route('dashboard') }}" class="btn btn-outline-secondary me-2">
+            <a href="{{ route('dashboard') }}" class="btn btn-secondary me-2">
                 <i class="fas fa-arrow-left me-2"></i>Voltar
             </a>
             <a href="{{ route('banners.create') }}" class="btn btn-primary">
@@ -21,7 +25,7 @@
     <div class="card-body">
         @if($banners->count() > 0)
         <div class="admin-table-responsive table-responsive">
-            <table class="table table-hover align-middle text-center">
+            <table class="table table-hover table-bordered align-middle text-nowrap text-center">
                 <thead class="table-light">
                     <tr>
                         <th>ID</th>
