@@ -11,7 +11,7 @@
             <h2 class="section-title">Entre em Contacto</h2>
             <div class="row">
                 <div class="col-md-8 mx-auto">
-                    <p class="section-subtitle">Estamos disponíveis para responder a todas as suas perguntas ou agendar uma visita às nossas estufas.</p>
+                    <p class="section-subtitle">Estamos disponíveis para responder a todas as suas perguntas.</p>
                 </div>
             </div>
         </div>
