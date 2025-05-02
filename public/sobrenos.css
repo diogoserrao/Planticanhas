@@ -194,6 +194,18 @@
         width: 90px !important;
         height: 90px !important;
         font-size: 0.8rem;
+        /* Reposicionar para canto inferior direito */
+        top: auto !important;
+        left: auto !important;
+        bottom: -15px !important;
+        right: 15px !important;
+        transform: none !important; /* Remover o translate-middle */
+        display: flex !important; /* Garantir que seja visível */
+    }
+
+    /* Ajustar efeito hover para a nova posição */
+    .position-relative:hover .position-absolute.bg-success {
+        transform: rotate(10deg) scale(1.05) !important;
     }
     
     .about-content .row {
@@ -230,6 +242,8 @@
         width: 80px !important;
         height: 80px !important;
         font-size: 0.7rem;
+        bottom: -10px !important;
+        right: 10px !important;
     }
     
     .about-content .fs-1 {
