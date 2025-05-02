@@ -99,6 +99,20 @@
                     navbarToggler.setAttribute('aria-expanded', 'false');
                 }
             });
+
+            // Fechar menu ao clicar fora
+        document.addEventListener('click', function(event) {
+            if (window.innerWidth < 992 && 
+                !navbarToggler.contains(event.target) && 
+                !navbarCollapse.contains(event.target)) {
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                if (navbarCollapse.classList.contains('show')) {
+                    bsCollapse.hide();
+                    navbarToggler.querySelector('.menu-label').textContent = 'Menu';
+                    navbarToggler.setAttribute('aria-expanded', 'false');
+                }
+            }
+        });
         });
     </script>
 </body>
