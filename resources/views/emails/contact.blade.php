@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Nova Mensagem de Contacto</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,46 +14,69 @@
             border: 1px solid #ddd;
             border-radius: 5px;
         }
-        h1 {
-            color: #28a745;
+        .header {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+        .content {
+            padding: 20px;
         }
         .field {
             margin-bottom: 15px;
         }
         .label {
             font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #666;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Nova Mensagem de Contacto</h1>
-        
-        <div class="field">
-            <p class="label">Nome:</p>
-            <p>{{ $data['name'] }}</p>
+        <div class="header">
+            <h2>Nova Mensagem de Contato</h2>
         </div>
         
-        <div class="field">
-            <p class="label">Email:</p>
-            <p>{{ $data['email'] }}</p>
+        <div class="content">
+            <div class="field">
+                <span class="label">Nome:</span>
+                <div>{{ $data['name'] }}</div>
+            </div>
+            
+            <div class="field">
+                <span class="label">Email:</span>
+                <div>{{ $data['email'] }}</div>
+            </div>
+            
+            @if(isset($data['phone']))
+            <div class="field">
+                <span class="label">Telefone:</span>
+                <div>{{ $data['phone'] }}</div>
+            </div>
+            @endif
+            
+            <div class="field">
+                <span class="label">Assunto:</span>
+                <div>{{ $data['subject'] }}</div>
+            </div>
+            
+            <div class="field">
+                <span class="label">Mensagem:</span>
+                <div>{{ $data['message'] }}</div>
+            </div>
         </div>
         
-        @if(isset($data['phone']) && $data['phone'])
-        <div class="field">
-            <p class="label">Telefone:</p>
-            <p>{{ $data['phone'] }}</p>
-        </div>
-        @endif
-        
-        <div class="field">
-            <p class="label">Assunto:</p>
-            <p>{{ $data['subject'] }}</p>
-        </div>
-        
-        <div class="field">
-            <p class="label">Mensagem:</p>
-            <p>{{ $data['message'] }}</p>
+        <div class="footer">
+            <p>Esta mensagem foi enviada através do formulário de contato em {{ now()->format('d/m/Y H:i') }}.</p>
         </div>
     </div>
 </body>

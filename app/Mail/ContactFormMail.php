@@ -23,7 +23,6 @@ class ContactFormMail extends Mailable
         $this->data = $data;
     }
    
-    
 
     /**
      * Get the message envelope.
@@ -31,7 +30,11 @@ class ContactFormMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Contact Form Mail',
+            subject: 'Nova mensagem de ' . $this->data['name'] . ': ' . $this->data['subject'],
+            from: env('MAIL_FROM_ADDRESS', 'noreply@planticanhas.com'),
+            replyTo: [
+                ['name' => $this->data['name'], 'address' => $this->data['email']],
+            ],
         );
     }
 

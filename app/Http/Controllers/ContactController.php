@@ -20,7 +20,10 @@ class ContactController extends Controller
         ]);
         
         // Send the email MUDAR EMAIl AQUI
-        Mail::to('2088923@student.uma.pt')->send(new ContactFormMail($validated));
+        $adminEmail = env('ADMIN_EMAIL', '2088923@student.uma.pt');
+        
+        // Enviar o email
+        Mail::to($adminEmail)->send(new ContactFormMail($validated));
         
         return back()->with('success', 'Mensagem enviada com sucesso! Entraremos em contato brevemente.');
     }
