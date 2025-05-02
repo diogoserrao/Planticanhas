@@ -45,18 +45,6 @@
                         <div class="product-body">
                             <h5 class="product-title">{{ $product->name }}</h5>
                             <p class="product-description">{{ $product->description }}</p>
-                            <div class="product-footer">
-                                @if($category == 'Frutas Frescas')
-                                <span class="season-badge"><i class="fas fa-calendar-alt me-2"></i>Todo o ano</span>
-                                @elseif($product->name == 'Milho')
-                                <span class="season-badge"><i class="fas fa-sun me-2"></i>Verão</span>
-                                @elseif($product->name == 'Tabuleiros Plantados')
-                                <span class="season-badge"><i class="fas fa-seedling me-2"></i>Hortas caseiras</span>
-                                @elseif($product->name == 'Couves')
-                                <span class="season-badge"><i class="fas fa-seedling me-2"></i>Colheita artesanal</span>
-                                @endif
-
-                            </div>
                         </div>
                     </div>
                 </div>
