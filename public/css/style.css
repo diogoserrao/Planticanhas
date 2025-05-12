@@ -1,5 +1,6 @@
 /* Reset básico */
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -17,22 +18,26 @@ body, html {
     width: 100%;
 }
 
-/* Sidebar */
-.sidebar {
-    width: 250px;
+/* Navbar principal */
+.navbar-main {
+    width: 100%;
     background-color: #2c3e50;
     color: white;
-    padding: 20px;
     position: fixed;
     top: 0;
     left: 0;
-    bottom: 0;
-    z-index: 1000; /* Certifica-se de que a sidebar ficará sempre por cima */
-    transition: width 0.3s ease;
+    right: 0;
+    height: 60px;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
 }
 
-.sidebar-header {
-    margin-bottom: 20px;
+.navbar-header {
+    display: flex;
+    align-items: center;
 }
 
 .logo {
@@ -49,12 +54,16 @@ body, html {
 
 /* Menu de navegação */
 .nav-menu {
+    display: flex;
+    align-items: center;
     list-style: none;
     padding: 0;
+    margin: 0 0 0 30px;
+    flex-grow: 1;
 }
 
 .nav-item {
-    margin-bottom: 10px;
+    margin: 0 10px;
 }
 
 .nav-item a {
@@ -62,12 +71,13 @@ body, html {
     align-items: center;
     color: white;
     text-decoration: none;
-    padding: 10px;
+    padding: 0 15px;
+    height: 60px;
     transition: background-color 0.3s;
 }
 
 .nav-item a:hover {
-    background-color: #34495e; /* Efeito hover */
+    background-color: #34495e;
 }
 
 .nav-icon {
@@ -77,22 +87,24 @@ body, html {
 /* Conteúdo principal */
 .main-content {
     flex: 1;
-    padding: 20px;
+    
     background-color: #f5f5f5;
-    margin-left: 250px; /* Espaço para a sidebar */
-    transition: margin-left 0.3s ease;
+    width: 100%;
 }
 
 .content-header {
     margin-bottom: 20px;
 }
-
 /* Alertas */
 .alerts {
     margin-bottom: 20px;
 }
 
 /* Logout */
+.logout {
+    margin-left: auto;
+}
+
 .logout button {
     background: none;
     border: none;
@@ -100,29 +112,27 @@ body, html {
     cursor: pointer;
     display: flex;
     align-items: center;
-    padding: 10px;
-    width: 100%;
-    text-align: left;
+    padding: 0 15px;
+    height: 60px;
 }
 
 /* Mobile Header */
 .mobile-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background-color: #2c3e50;
-    color: white;
-    z-index: 1050;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.mobile-header .container-fluid {
+    height: 100%;
+    padding: 0; /* Remover padding extra */
 }
 
 .mobile-header-content {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 100%;
     padding: 0 15px;
+    width: 100%;
 }
 
 .menu-toggle {
@@ -130,8 +140,13 @@ body, html {
     border: none;
     color: white;
     font-size: 1.25rem;
-    padding: 10px;
+    padding: 0;
     cursor: pointer;
+    display: flex; /* Adicionado */
+    align-items: center; /* Adicionado */
+    justify-content: center; /* Adicionado */
+    height: 40px; /* Altura fixa para melhor alinhamento */
+    width: 40px; /* Largura fixa para aspecto quadrado */
 }
 
 .mobile-logo {
@@ -140,57 +155,138 @@ body, html {
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
-    margin-left: 10px;
+    margin-left: 0;
+    height: 40px; /* Adicionado para consistência com o botão */
 }
 
 .mobile-logo .logo-icon {
     margin-right: 8px;
 }
 
-/* Sidebar modifications */
-.sidebar {
-    width: 250px;
-    background-color: #2c3e50;
-    color: white;
-    padding: 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 1000;
-    transition: transform 0.3s ease;
-}
+
 
 /* Responsive styles */
 @media (max-width: 991.98px) {
     .mobile-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background-color: #2c3e50;
+        color: white;
+        z-index: 1050;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         display: block;
     }
-    
-    .content-header {
-        margin-top: 10px;
+
+    .mobile-header .container-fluid {
+        height: 100%;
+        padding: 0;
     }
 
-    .sidebar {
-        transform: translateX(-100%);
-        top: 60px; /* Height of mobile header */
-        z-index: 1040;
-        box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
+    .mobile-header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        padding: 0 15px;
+        width: 100%;
     }
-    
-    .sidebar.active {
+
+    .menu-toggle {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.25rem;
+        padding: 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 40px;
+    }
+
+    .mobile-logo {
+        display: flex;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+        margin-left: 0;
+        height: 40px;
+    }
+
+    .mobile-logo .logo-icon {
+        margin-right: 8px;
+    }
+
+    /* Esconder navbar principal */
+    .navbar-main {
+        display: none;
+    }
+
+    /* Transformar nav-menu em menu vertical para mobile */
+    .nav-menu {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        bottom: 0;
+        width: 250px;
+        background-color: #2c3e50;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 1040;
+        box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+        margin: 0;
+    }
+
+    .nav-menu.active {
         transform: translateX(0);
     }
-    
+
+    .nav-item {
+        margin: 0 0 10px 0;
+        width: 100%;
+    }
+
+    .nav-item a,
+    .logout button {
+        height: auto;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .logout {
+        width: 100%;
+    }
+
+    /* Ajustar o conteúdo principal */
     .main-content {
         margin-left: 0 !important;
-        padding-top: 70px !important; /* Space for mobile header */
+        padding-top: 60px !important;
+        padding-right: 0 !important; /* Remove o padding direito */
+    }
+
+    .container-fluid {
+        padding-right: 0 !important; /* Remove o padding direito do container-fluid */
+    }
+    
+    .row {
+        margin-right: 0 !important; /* Remove a margem direita da row */
+    }
+    .content-header {
+        margin-top: 10px;
     }
 
     .cards-grid {
         grid-template-columns: 1fr;
     }
-    
+
     /* Make action buttons more touchable */
     .action-btn {
         padding: 1.5rem 1rem;
@@ -206,44 +302,24 @@ body, html {
     }
 }
 
-/* Original styles (keep these and add the above) */
-.main-content {
-    flex: 1;
-    padding: 20px;
-    background-color: #f5f5f5;
-    margin-left: 250px;
-    transition: margin-left 0.3s ease;
-}
-
-/* For larger screens, keep sidebar visible */
-@media (min-width: 992px) {
-    .main-content {
-        margin-left: 250px;
-    }
-}
-
 /* Responsividade */
 @media (max-width: 768px) {
-    .sidebar {
-        width: 200px;
-    }
-
     .main-content {
-        margin-left: 0;
         padding: 15px;
+        padding-top: 60px !important;
     }
 }
 
 @media (max-width: 575.98px) {
     .main-content {
-        padding: 70px 10px 20px 10px !important; 
+        padding: 70px 10px 20px 10px !important;
     }
-    
+
     .dashboard-header {
         flex-direction: column;
         align-items: flex-start;
     }
-    
+
     .dashboard-badges {
         margin-top: 10px;
         display: flex;

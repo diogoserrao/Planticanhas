@@ -6,6 +6,11 @@
 </head>
 
 @section('content')
+
+<div class="content-header">
+    <h1>Produtos</h1>
+</div>
+
 <div class="admin-card card">
     <div class="admin-card-header card-header d-flex justify-content-between align-items-center">
         <h4 class="admin-title">Lista de Produtos</h4>
