@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: laravel-app
+    container_name: laravel-app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    environment:
+      - DB_HOST=db
+      - DB_DATABASE=planticanhas
+      - DB_USERNAME=laravel
+      - DB_PASSWORD=
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    command: >
+      sh -c "php artisan migrate --force && php artisan db:seed && php artisan serve --host=0.0.0.0 --port=8000"
+
+  db:
+    image: mysql:8.0
+    container_name: planticanhas_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: planticanhas
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+
+volumes:
+  dbdata:
