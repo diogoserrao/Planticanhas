@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -12,8 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Adicionar os produtos que já estão na view
-        DB::table('products')->insert([
+          DB::table('products')->insert([
             // Categoria: Frutas Frescas
             [
                 'name' => 'Papaias',
@@ -84,6 +83,31 @@ return new class extends Migration
                 'updated_at' => now()
             ],
         ]);
+
+        // Insert the existing banner images from the site
+        DB::table('banners')->insert([
+            [
+                'image' => 'https://th.bing.com/th/id/R.d343136b443ca9810fb04873a294fea8?rik=eX3AWThE9linYw&pid=ImgRaw&r=0',
+                'active' => true,
+                'order' => 1,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'image' => 'https://th.bing.com/th/id/R.85298e4ffac423a5c97f4352fdd28dc5?rik=baPkqOL2p8fENw&pid=ImgRaw&r=0',
+                'active' => true,
+                'order' => 2,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'image' => 'https://th.bing.com/th/id/R.a51ea741153816670470a2b2f28a9c44?rik=Q4225SMyhyxqPg&pid=ImgRaw&r=0',
+                'active' => true,
+                'order' => 3,
+                'created_at' => now(),
+                'updated_at' => now()
+            ]
+        ]);
     }
 
     /**
@@ -91,9 +115,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        DB::table('products')->whereIn('name', [
-            'Papaias', 'Tomates', 'Pimentos', 
-            'Tabuleiros Plantados', 'Milho', 'Couves'
-        ])->delete();
+        //
     }
 };
